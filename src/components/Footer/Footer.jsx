@@ -1,6 +1,25 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
+import "./FooterNew.css";
+import { useEffect } from "react";
 
 function Footer() {
+  useEffect(() => {
+    const listItem = document.querySelectorAll(".list");
+
+    function activateLink() {
+      listItem.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      this.classList.add("active");
+    }
+
+    listItem.forEach((item) => {
+      item.addEventListener("click", activateLink);
+    });
+  }, []);
+
   return (
     <div>
       <footer className="text-center text-lg-start text-white mt-2">
@@ -116,27 +135,45 @@ function Footer() {
         <div className="text-center p-3 footer-bottom">© 2023 TexnoSat</div>
       </footer>
 
-      <nav className="footer-mobile text-center">
-        <ul>
-          <li>
-            <i className="fa-solid fa-house"></i> <br />
-            Ana səhifə
+      <div className="navigation ">
+        <ul className="listWrap ">
+          <li className="list">
+            <a href={void 0}>
+              <i className="fa-solid fa-house icon "></i>
+              <span className="text" style={{ fontSize: "13px" }}>
+                Ana səhifə
+              </span>
+            </a>
           </li>
-          <li>
-            <i className="fa-solid fa-heart"></i> <br />
-            Seçilmişlər
+          <li className="list">
+            <a href={void 0}>
+              <i className="fa-solid fa-heart icon"></i>
+              <span className="text">Seçilmişlər</span>
+            </a>
           </li>
-          <li className="mobile-add">+</li>
-          <li>
-            <i className="fa-solid fa-message"></i> <br />
-            Mesajlar
+          <li className="list active">
+            <a href={void 0}>
+              <i className="fa-solid fa-plus icon"></i>
+              <span className="text" style={{ fontSize: "13px" }}>
+                Yeni elan
+              </span>
+            </a>
           </li>
-          <li>
-            <i className="fa-solid fa-user"></i> <br />
-            Hesabım
+          <li className="list">
+            <a href={void 0}>
+              <i className="fa-solid fa-message icon"></i>
+              <span className="text">Mesajlar</span>
+            </a>
           </li>
+          <li className="list">
+            <a href={void 0}>
+              <i className="fa-solid fa-user icon"></i>
+              <span className="text">Hesabım</span>
+            </a>
+          </li>
+          <li className="indicator"></li>
         </ul>
-      </nav>
+      </div>
     </div>
   );
 }

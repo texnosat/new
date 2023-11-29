@@ -47,7 +47,7 @@ function Cart() {
                     <p className="price">{prod.price} m</p>
                   </div>
                   <div className="blog-content">
-                    <p className="blog-label">{prod.category}</p>
+                    <p className="blog-label me-1">{prod.category}</p>
                     <h4>{prod.title}</h4>
                     <p>
                       {prod.description.length > 25
@@ -55,10 +55,10 @@ function Cart() {
                         : prod.description}
                     </p>
                     <div className="author row">
-                      <div className="col-9">
+                      <div className="d-flex justify-content-between">
+                        <p className="time">{prod.city}</p>
                         <p className="time">{prod.date}</p>
                       </div>
-                      <div className="col-3"></div>
                     </div>
                   </div>
                 </section>

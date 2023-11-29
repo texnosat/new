@@ -7,6 +7,7 @@ import { Carousel } from "react-bootstrap";
 function ProductPage() {
   const param = useParams();
   const [showNumber, setShowNumber] = useState(false);
+  const [showNumberTitle, setShowNumberTitle] = useState(!false);
 
   function show() {
     setShowNumber(!showNumber);
@@ -35,19 +36,20 @@ function ProductPage() {
             </Carousel>
           </div>
 
-          <div className="col-lg-6 col-12">
+          <div className="col-lg-6 col-12 for-footer">
             <h1>{product.title}</h1>
             <p>
               <b className="me-3">Qiymət</b> {product.price} m
             </p>
-            {/* <p>{product?.color ? `Rəng :${product.color}` : ""}</p> */}
             <p>
               <b className="me-3">Vəziyyət</b> Yeni
             </p>
             <p>
               <b className="me-3">Tarix</b> {product.date}
             </p>
-            <p>Nömrəni göstər</p>
+            <p onClick={() => show()}>
+              {showNumber ? "Nömrəni gizlət" : "Nömrəni göstər"}
+            </p>
             <b>
               <span onClick={() => show()} className="phone-number">
                 {showNumber ? (

@@ -1,0 +1,162 @@
+.navigation {
+	display: none;
+}
+
+
+@media (max-width: 430px) {
+	:root {
+		--bg-default: #222327;
+		--primary-white: #fff;
+		--primary-red: #037f64;
+	}
+	
+	.navigation {
+		background-color: #037f64;
+
+		height: 70px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10px;
+		padding: 0 20px;
+	}
+	.navigation .listWrap {
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0;
+	}
+	.navigation .listWrap li {
+		width: 70px;
+		height: 70px;
+		position: relative;
+		z-index: 1;
+	}
+	.navigation .listWrap li a {
+		text-decoration: none;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		font-weight: 500;
+		width: 100%;
+	}
+	.navigation .listWrap li a:hover {
+		text-decoration: none;
+	}
+	.navigation .listWrap li a .icon {
+		position: relative;
+		display: block;
+		line-height: 75px;
+		text-align: center;
+		transition: 0.5s;
+		color: var(--bg-default);
+	}
+	.navigation .listWrap li a .icon ion-icon {
+		font-size: 2.2rem;
+	}
+	.navigation .listWrap li a .text {
+		position: absolute;
+		color: var(--bg-default);
+		font-weight: 400;
+		letter-spacing: 0.05em;
+		transition: 0.5s;
+		transform: translateY(20px);
+		opacity: 0;
+		z-index: 1;
+	}
+	.navigation .listWrap li:active a .icon, .navigation .listWrap li.active a .icon {
+		color: var(--primary-white);
+		transform: translateY(-32px);
+	}
+	.navigation .listWrap li:active a .text, .navigation .listWrap li.active a .text {
+		opacity: 1;
+		transform: translateY(10px);
+	}
+	.navigation .listWrap li.indicator {
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		top: -50%;
+		border-radius: 50%;
+		border: 6px solid var(--bg-default);
+		background: var(--primary-red);
+		transition: 0.3s;
+		z-index: 0;
+	}
+	.navigation .listWrap li.indicator:before, .navigation .listWrap li.indicator:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		width: 20px;
+		height: 20px;
+		background: blue;
+		background: transparent;
+	}
+	.navigation .listWrap li.indicator:after {
+		right: -22px;
+		box-shadow: -1px -10px 0 0 var(--bg-default);
+		border-top-left-radius: 20px;
+	}
+	.navigation .listWrap li.indicator:before {
+		left: -22px;
+		box-shadow: 1px -10px 0 0 var(--bg-default);
+		border-top-right-radius: 20px;
+	}
+	.navigation .listWrap li:nth-child(1).active ~ .indicator {
+		transform: translateX(calc(10px * 0));
+	}
+	.navigation .listWrap li:nth-child(2).active ~ .indicator {
+		transform: translateX(calc(67px * 1 + (6px * 2)));
+	}
+	.navigation .listWrap li:nth-child(3).active ~ .indicator {
+		transform: translateX(calc(67px * 2 + (6px * 4) + 1px));
+	}
+	.navigation .listWrap li:nth-child(4).active ~ .indicator {
+		transform: translateX(calc(67px * 3 + (6px * 6) + 2px));
+	}
+	.navigation .listWrap li:nth-child(5).active ~ .indicator {
+		transform: translateX(calc(67px * 4 + (6px * 8) + 3px));
+	}
+	
+}
+
+@media (max-width: 395px) {
+	.navigation .listWrap li:nth-child(1).active ~ .indicator {
+		transform: translateX(calc(10px * 0));
+	}
+	.navigation .listWrap li:nth-child(2).active ~ .indicator {
+		transform: translateX(calc(56px * 1 + (6px * 2)));
+	}
+	.navigation .listWrap li:nth-child(3).active ~ .indicator {
+		transform: translateX(calc(56px * 2 + (6px * 4) + 1px));
+	}
+	.navigation .listWrap li:nth-child(4).active ~ .indicator {
+		transform: translateX(calc(56px * 3 + (6px * 6) + 2px));
+	}
+	.navigation .listWrap li:nth-child(5).active ~ .indicator {
+		transform: translateX(calc(56px * 4 + (6px * 8) + 3px));
+	}
+}	
+	
+@media (max-width:360px) {
+	.navigation .listWrap li:nth-child(1).active ~ .indicator {
+		transform: translateX(calc(10px * 0));
+	}
+	.navigation .listWrap li:nth-child(2).active ~ .indicator {
+		transform: translateX(calc(46px * 1 + (6px * 2)));
+	}
+	.navigation .listWrap li:nth-child(3).active ~ .indicator {
+		transform: translateX(calc(49px * 2 + (6px * 4) + 1px));
+	}
+	.navigation .listWrap li:nth-child(4).active ~ .indicator {
+		transform: translateX(calc(50px * 3 + (6px * 6) + 2px));
+	}
+	.navigation .listWrap li:nth-child(5).active ~ .indicator {
+		transform: translateX(calc(50px * 4 + (6px * 8) + 3px));
+	}	
+}

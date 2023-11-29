@@ -54,3 +54,8 @@ input {
     margin-top: 12px;
     text-decoration: none;
 }
+@media (max-width:600px) {
+    .registration-form {
+        width: 100%;
+    }
+}

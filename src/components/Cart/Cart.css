@@ -97,9 +97,29 @@
     .blog-content {
         padding: 2px;
     }
+
+    .blog-card {
+        height: 240px;
+    }
+    .blog-card h4 {
+        font-size: 14px;
+        display: inline;
+    }
+    .blog-label {
+        display: inline;
+    }
+
+    .blog-content p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .author {
+        text-align: right;
+    }
 } 
 
-@media (max-width: 400px) {
+@media (max-width: 400px) {     
     .carousel-control-next {
         align-items: start;
         margin-top: 47%;

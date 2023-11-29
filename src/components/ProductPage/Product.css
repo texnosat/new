@@ -6,3 +6,9 @@
     font-size: 24px;
     border-radius: 4px;
 }
+
+@media (max-width:700px) {
+    .for-footer {
+        margin-bottom: 80px;
+    }
+}
