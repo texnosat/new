@@ -1,9 +1,34 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import "./FooterNew.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddToFav from "../Cart/addToFav";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCart } from "../../store/slices/favoritesSlice";
 
 function Footer() {
+  const { cartItems, heartFull } = useSelector((state) => state.cart);
+  console.log(cartItems);
+  const [isAdded, setIsAdded] = useState(false);
+  const dispatch = useDispatch();
+
+  const cartQuantity = cartItems.length;
+
+  const handleOpenCart = (open) => {
+    dispatch(toggleCart(open));
+  };
+
+  // const handleAddToCart = (id) => {
+  //   dispatch(addItem(id));
+  //   //setHeartActive(!heartActive);
+
+  //   setIsAdded(true);
+
+  //   setTimeout(() => {
+  //     setIsAdded(false);
+  //   }, 3000);
+  // };
+
   useEffect(() => {
     const listItem = document.querySelectorAll(".list");
 
@@ -145,10 +170,24 @@ function Footer() {
               </span>
             </a>
           </li>
-          <li className="list">
+          <li className="list footer-icon-badge">
             <a href={void 0}>
               <i className="fa-solid fa-heart icon"></i>
               <span className="text">Seçilmişlər</span>
+
+              <div className="navbar icon-add-fav">
+                <div></div>
+                <div className="nav_menu">
+                  <div
+                    title="Cart"
+                    className="cart_icon"
+                    onClick={() => handleOpenCart(true)}
+                  >
+                    <span className="badge">{cartQuantity}</span>
+                  </div>
+                </div>
+              </div>
+              <AddToFav />
             </a>
           </li>
           <li className="list active">

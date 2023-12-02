@@ -57,10 +57,10 @@ function Filter() {
         <div className="container">
           <span onClick={() => changeFilter()}>
             {filter ? (
-              <i class="fa-solid fa-filter"></i>
+              <i className="fa-solid fa-filter"></i>
             ) : (
               <div>
-                <i class="fa-solid fa-filter-circle-xmark"></i>
+                <i className="fa-solid fa-filter-circle-xmark"></i>
 
                 <div>
                   <span>Qiymət : </span>

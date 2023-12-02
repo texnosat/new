@@ -3,19 +3,19 @@ import "./Product.css";
 import { useParams } from "react-router-dom";
 import db from "../../../public/db.json";
 import { Carousel } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
 function ProductPage() {
   const param = useParams();
   const [showNumber, setShowNumber] = useState(false);
-  const [showNumberTitle, setShowNumberTitle] = useState(!false);
 
   function show() {
     setShowNumber(!showNumber);
   }
 
-  console.log("db");
-  console.log(db.products[param.id]);
   let product = db.products[param.id];
+  console.log("product page");
+  console.log(product);
 
   return (
     <div>
@@ -59,7 +59,9 @@ function ProductPage() {
                 )}
               </span>
             </b>
+
             <br />
+
             <p className="mt-5">
               <b>Əlavə məlumat</b>
             </p>

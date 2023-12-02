@@ -1,5 +1,7 @@
 .navigation {
 	display: none;
+	position: fixed;
+	bottom: 0;
 }
 
 
@@ -83,7 +85,7 @@
 		height: 70px;
 		top: -50%;
 		border-radius: 50%;
-		border: 6px solid var(--bg-default);
+		border: 6px solid white;
 		background: var(--primary-red);
 		transition: 0.3s;
 		z-index: 0;
@@ -99,12 +101,12 @@
 	}
 	.navigation .listWrap li.indicator:after {
 		right: -22px;
-		box-shadow: -1px -10px 0 0 var(--bg-default);
+		box-shadow: -1px -10px 0 0 white;
 		border-top-left-radius: 20px;
 	}
 	.navigation .listWrap li.indicator:before {
 		left: -22px;
-		box-shadow: 1px -10px 0 0 var(--bg-default);
+		box-shadow: 1px -10px 0 0 white;
 		border-top-right-radius: 20px;
 	}
 	.navigation .listWrap li:nth-child(1).active ~ .indicator {

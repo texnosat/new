@@ -1,25 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 import db from "../../../public/db.json";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, toggleCart } from "../../store/slices/favoritesSlice";
+import AddToFav from "./addToFav";
 
 function Cart() {
   const [heartActive, setHeartActive] = useState(false);
-  const [crown, setCrown] = useState(true);
 
-  console.log(db);
+  const { cartItems, heartFull } = useSelector((state) => state.cart);
+  console.log(cartItems);
+  const [isAdded, setIsAdded] = useState(false);
+  const dispatch = useDispatch();
 
-  function changeHeart() {
+  const cartQuantity = cartItems.length;
+
+  const handleOpenCart = (open) => {
+    dispatch(toggleCart(open));
+  };
+
+  function changeHeart(id) {
     setHeartActive(!heartActive);
   }
 
+  const handleAddToCart = (id) => {
+    dispatch(addItem(id));
+    //setHeartActive(!heartActive);
+
+    setIsAdded(true);
+
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 3000);
+  };
+
   return (
     <div>
+      {/* new */}
+      <div className="navbar icon-fav-footer-hidden">
+        <div></div>
+        <div className="nav_menu">
+          <div
+            title="Cart"
+            className="cart_icon"
+            onClick={() => handleOpenCart(true)}
+          >
+            <span className="badge">{cartQuantity}</span>
+          </div>
+        </div>
+      </div>
+      <AddToFav />
+      {/* end new */}
+
       <div className="container">
         <div className="row">
           {db.products.map((prod) => (
-            <div className="col-lg-3 col-md-6 col-6">
+            <div className="col-lg-3 col-md-6 col-6 main-card">
+              <i
+                onClick={() => handleAddToCart(prod)}
+                className={
+                  heartFull
+                    ? "fa-solid fa-heart card-heart"
+                    : "fa-regular fa-heart card-heart"
+                }
+              ></i>
               <Link
                 to={`/product/${prod.id}`}
                 style={{ textDecoration: "none", color: "darkslategray" }}
@@ -35,14 +81,6 @@ function Cart() {
                     </Carousel>
                     <i
                       className={prod.vip ? "fa-solid fa-crown card-crown" : ""}
-                    ></i>
-                    <i
-                      onClick={() => changeHeart()}
-                      className={
-                        heartActive
-                          ? "fa-solid fa-heart card-heart"
-                          : "fa-regular fa-heart card-heart"
-                      }
                     ></i>
                     <p className="price">{prod.price} m</p>
                   </div>

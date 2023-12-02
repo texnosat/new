@@ -1,3 +1,8 @@
+.main-card {
+    position: relative;
+    z-index: 0;
+}
+
 .blog-card {
     box-sizing: border-box;
     margin: 2rem auto;
@@ -72,21 +77,12 @@
     color: red;
     position: absolute;
     font-size: 26px;
-    top: 12px;
-    right: 12px;
+    top: 42px;
+    z-index: 9999;
+    right: 22px;
 }
 
-/* .carousel-control-next {
-    align-items: start;
-    margin-top: 28%;
-} */
-
- @media (max-width: 700px) {
-    /* .carousel-control-next {
-        align-items: start;
-        margin-top: 28%;
-    } */
-    
+ @media (max-width: 700px) {   
     .blog-card img {
         height: 150px !important;
     }
@@ -117,6 +113,12 @@
     .author {
         text-align: right;
     }
+
+    .icon-fav-footer-hidden {
+        display: none !important;
+    }
+
+   
 } 
 
 @media (max-width: 400px) {     
@@ -124,6 +126,4 @@
         align-items: start;
         margin-top: 47%;
     }
-
-    
 }
